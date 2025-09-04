@@ -1,0 +1,37 @@
+	Question P1.1)
+ 
+I] Comment représentez-vous ces vecteurs ?
+II] Comment sont-ils organisés : quels attributs ?
+III]Quels méthodes ?
+IV]Quels droits d’accès ?
+ 
+I]  On représente les vecteurs comme un triplet de coordonnées dans le repère orthonormé (O,x,y,z) de l’espace R^3.
+ 
+II]  On implémente ces vecteurs par la Classe vecteur3D qui définit un nouveau type. Concrètement, les vecteurs sont représentés dans la classe par leurs coordonnées (x,y,z) stockées dans un array de double de taille 3.
+ 
+III] Les méthodes qu’on a implémentées sont pour la plupart les méthodes recommandées mais on a fait un choix d’implémentation différent pour le manipulateur de coordonnées « set_coord ». Nous avons choisi de suivre les recommandations et de créer une méthode « set_coord ». Cependant cela ne semblait pas naturel à l’utilisation (à cause des deux paramètres de la fonction), et peu lisible pour le développeur qui utilise la classe. Nous avons donc créé 3 méthodes différentes (« set_x » « set_y », « set_z ») qui modifient les trois coordonnées stockées dans le array séparément en faisant appel à « set_coord » : rendant plus claire la lecture et l’écriture du code. Nous avons aussi implémenté un accesseur “get_coord” que nous avons surchargé : Si on l’appelle sans paramètres, elle retourne l’array avec les coordonnées du vecteur, si on l’appelle avec un char en paramètre (x, y, ou z) elle retourne cette coordonnée.
+ 
+IV] Nous avons mis, l’attribut ( array de 3 double(x,y,z) ) et la méthode « set_coord » en « private » ; le reste des méthodes est en « public ». Cela nous permet de mieux contrôler ce que l’utilisateur peut faire et modifier.
+  
+	P 4.1) Nous n’ajoutons pas de constructeur de copie à la classe Vecteur3D car son seul attribut est un triplet de coordonnées stocké dans un array de doubles que le constructeur de copie par défaut par défaut, copie automatiquement. De plus, nous ne souhaitons pas exécuter d’instructions lors de la copie d’un Vecteur3D, ainsi définir un autre constructeur de copie n’est pas nécessaire.
+
+
+	P 4.2) Pour ajouter un constructeur par coordonnées sphériques, il faudrait ajouter un attribut à notre classe ( array de taille 3 ou une structure avec 3 doubles par exemple) pour les stocker spécifiquement. Cela nécessiterait d'ajouter une convention ( l’ordre des double dans le nouvel array). On pourrait également vouloir ajouter un unique attribut bool (en plus du array déjà présent) qui indiquerait si les coordonnées sont en sphériques ou en cartésiennes ( en ajoutant encore une fois la convention qui va avec). Il y a plusieurs difficultés qui viennent avec ces deux représentations : dans notre deuxième solution, la conversion des coordonnées engendrerait plus d’arrondis sur les valeurs que nécessaire. Mais la difficulté principale est sur l’initialisation d’un Vecteur3D grâce à un constructeur. En effet, si l’on définit un constructeur qui prend en argument 3 doubles, il serait impossible de savoir si l’on définit les coordonnées cartésiennes ou les coordonnées sphériques car en C++ on ne peut que surcharger les fonctions (ici constructeur) sur les types et non sur les noms: les coordonnées sphériques et les coordonnées cartésiennes étant toutes les deux représentées par trois doubles. Pour remédier à celà, il faut complexifier le constructeur (en ajoutant un bool par exemple) ce qui alourdit l’écriture et la rend moins naturelle.  
+
+	P 4.3) Nous avons introduit les opérateurs == et !=. L’opérateur == est surchargé en interne et != est surchargé en externe (définit grâce à ==). On ne trouve pas pertinent d’introduire les comparateurs <, <=, > et >= parce que celà n’aurait pas beaucoup de sens avec des vecteurs (parle-t-on de leur norme ?, mais qu’en est-il alors de la direction ?). Il est plus judicieux de comparer la norme de 2 vecteurs, ce qu’on peut faire sans surcharge car il s’agit de doubles.
+
+	P 5.1) Nous avons implémenté l’ensemble de ressort par un vector de pointeurs sur des ressorts. En effet, comme deux masses partagent le même ressort, celà permet de ne pas copier leur information trop de fois, ce qui utiliserait trop de mémoire. De plus, cela permet au masses d’avoir accès à exactement le même ressort.
+
+
+	P 7.1) La classe intégrateur est conçue comme une classe abstraite qui ne contient qu’une méthode virtuelle pure, la méthode d’intégration. On la conçoit donc comme super-classe grâce à laquelle on pourra mettre en place un polymorphisme. Chaque type d’intégrateur est une sous-classe de la classe intégrateur.
+
+	P7.2) La classe IntegrateurEuleurCromer est une sous classe de la Super classe Intégrateur. Elle n’est elle pas une classe abstraite, à l’inverse de Integrateur.
+
+	P8.1) Nous avons implémenté les trois méthodes précédentes. La méthode connecte() est en public parce que nous laissons à l’utilisateur le soin de connecter les masses. En effet la classe tissu est générique et son constructeur reçoit une liste de pointeurs sur des masses, il ne choisit donc pas leur position où leur masse. Ainsi, pour que la longueur à vide et la raideur de chaque ressort soit cohérente, l’utilisateur s’en charge. Nous avons implémenter la fonction check() en public pour que l’utilisateur puisse vérifier s’il a connecté les masses en respectant les contraintes évoquées dans l’exercice P8. Enfin nous avons implémenté la méthode connecte_masse() en private afin de l’appeler dans le corps de connecte() et d’être certain de toujours avoir les bonnes adresses dans les listes de ressorts des masses.
+
+	P9.1) En termes de POO, la méthode dessine_sur() est une méthode virtuelle. En effet elle doit permettre, en fonction de la sous-classe qui l’appelle et du type de Support à dessin en paramètre, d’afficher l’interface graphique en mode “texte” ou en mode “visualisation-graphique”.
+
+	P9.4) La classe système doit  la classe système comme une sous classe de la super classe abstraite Dessinable. Elle a comme attributs un vector de pointeurs sur des tissus, un vector de pointeurs sur des contraintes, qui représentent les “objets” qui constituent le système. Le dernier attribut de cette classe est un temps (implémenté par un double), pour faire évoluer les éléments du système et appliquer les contraintes. Comme toute sous classe de Dessinable elle contient la fonction (virtuelle substituée pour le polymorphisme) dessine_sur().
+ 
+	P14.1) Ces nouveaux intégrateurs sont des sous classe de la classe abstraite Intégrateur. Ils ont tous la même fonction evolue() qui override la méthode virtuelle pure de la super-classe Intégrateur. Pour pouvoir mettre en place un polymorphisme ces méthodes ont les mêmes paramètres et le même type de retour. Cependant les Chaque sous classe d'Intégrateur a des attributs spécifiques à la méthode d’intégration qu’ils implémentent. Ainsi, elles ont parfois des constructeurs différents.
+

@@ -1,0 +1,155 @@
+#LÉGENDE
+
++ : Fait par Maxime
+- : Fait par Omar
+* : Fait par les deux membres du binôme
+
+# PROGRESSION ===============================================
+
+[-]Créer les fichiers Journal, Conception et Réponses
+[*]Lire complètement le descriptif général
+[+]S'inscrire en binôme
+[*]Concevoir la classe Vecteur3D
+[+]Implémenter la classe Vecteur 3D
+[+]Tester Vecteur3D
+[-]Créer un Makefile et commencer à modulariser 
+[+]Revisiter la classe Vecteur3D ( Surcharge des opérateurs)
+[*]Concevoir les classes Masse et Ressort 
+[+]Implémenter la classe Masse
+[+]Tester la classe Masse
+[-]Implémenter la classe Ressort
+[-]Tester la classe Ressort
+[-]Implémenter la classe Constantes
+[+]Concevoir la classe Intégrateur
+[+]Concevoir la classe IntegrateurEulerCromer
+[+]Implémenter la classe Intégrateur
+[+]Implémenter la classe IntégrateurEulerCromer
+[+]Ecrire les 3 tests de l'Intégrateur Euler-Cromer
+[-]Concervoir la classe Tissu
+[-]Implémenter la classe Tissu
+[-]Tester la classe Tissu
+[+]Concevoir les systèmes (Classes Dessinables, SupportADessin, Système)
+[+]Implémentation des classes Dessinables, SupportADessin, Système)
+[+]Ecrire l'exercice P9
+[+]Implémenter TextViewer
+[-]Implémenter Systeme::evolue()
+[-]Ecrire l'exrecice P10
+[+]Implémenter les Graphismes
+[-]Concevoir les Tissus géométriques
+[-]Implémenter les Tissus géométriques
+[-]Tester les Tissus géométriques
+[+]Concevoir les contraintes
+[+]Implémenter les contraintes
+[+]Tester les Contraintes
+[-]Implémenter un l'Intégrateur Newmark
+[]Implémenter l'intégrateur Runge-Kutta
+[-]Tester les nouveaux intégrateurs 
+[-]Utiliser Valgrind pour analyser les test
+[]Corriger les fuites de mémoires
+[]Ecrire le fichier Conception
+[]Ecrire le ReadMe
+[]Relire le code
+[]Commenter le code
+
+
+
+#SUIVI ===============================================
+
+Semaine 1 ------------------------------------
+
+- Créer les fichiers Journal, Conception et Réponses
+- Lire complètement le descriptif général
+- S'inscrire en binôme
+
+Semaine 2 ------------------------------------
+
+- Concevoir la classe Vecteur3D
+- Implémenter la classe Vecteur 3D
+- Tester Vecteur3D
+
+Semaine 3 ------------------------------------
+
+- Créer un Makefile et commencer à modulariser
+
+Semaine 4 ------------------------------------
+
+- Revisiter la classe Vecteur3D (Surcharge des opérateurs)
+- Concevoir les classes Masse et Ressort
+- Implémenter la classe Masse
+- Tester la classe Masse
+- Implémenter la classe Ressort
+- Tester la classe Ressort
+- Implémenter la classe Constantes
+
+Semaine 5 ------------------------------------
+
+- Finir d'implémenter / tester les classes Masse et Ressort
+- Concevoir la classe Intégrateur
+- Concevoir la classe IntegrateurEulerCromer
+- Implémenter la classe Intégrateur
+- Implémenter la classe IntegrateurEulerCromer
+- Ecrire les 3 tests de l'Intégrateur Euler-Cromer
+- Concevoir la classe Tissu
+- Implémenter la classe Tissu
+
+Semaine 6 ------------------------------------
+
+- Finir les test de l'integrateur Euler-Cromer
+- Finir d'implémenter la classe Tissu
+- Tester la classe Tissu
+- Concevoir les classes Dessinables, SupportADessin, Système
+- Implémenter les classes Dessinables, SupportADessin, Système
+
+Semaine 7 ------------------------------------
+
+- Pause : Révision / Préparation du midterm
+
+Semaine 8 ------------------------------------
+
+- Finir d'implémenter les classes Dessinables, SupportADessin, Système
+- Ecrire l'exercice P9
+- Implémenter TextViewer
+- Implémenter Systeme::evolue()
+
+Semaine 9 ------------------------------------
+- Concevoir les Tissus géométriques
+- Implémenter les Tissus géométriques
+- Tester les Tissus géométriques
+
+Semaine 10 ------------------------------------
+
+- Continuer à tester les Tissus géométriques
+- Concevoir les contraintes
+- Implémenter les contraintes
+
+Semaine 11 ------------------------------------
+
+- Finir d'implémenter les contraintes
+- Tester les Contraintes
+- Continuer à tester les tissus géométriques
+
+Semaine 12 ------------------------------------
+
+- Analyser les tests avec Valgrind
+- Corriger les fuites de mémoires
+- Première relecture du code
+- Début de l'implémentation des graphismes
+- Commenter le code
+
+
+Semaine 13 ------------------------------------
+
+- Continuer les graphismes
+- Implémenter un l'Intégrateur Newmark
+- Implémenter l'intégrateur Runge-Kutta
+- Tester les nouveaux intégrateurs
+- Corriger les tissus géométriques 
+
+Semaine 14 ------------------------------------
+
+- Relire le code ( Mise au propre )
+- Finir d'implémenter les Graphismes
+- Ecrire le readme
+- Finition des fichiers textes
+
+
